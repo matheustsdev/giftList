@@ -18,13 +18,10 @@ export function GiftCard({ name, description, imageSrc, value, onClick }: IGiftC
             <Styled.Container>
                 <Styled.Image src={imageSrc} alt="placeholder" className="object-contain h-24 rounded-l-lg" />
                 <Styled.Content className="flex items-center justify-between w-72 h-full p-2">
-                    <Styled.ItemInfo className="flex flex-col justify-start h-full">
-                        <h2>{name}</h2>
-                        <span>{description}</span>
-                    </Styled.ItemInfo>
+                    <h2>{name}</h2>
                     <span>{utils.convertMoney(value)}</span>
-                    <ChevronRightIcon className="w-6 cursor-pointer" onClick={() => console.log("Clicked")} />
                 </Styled.Content>
+                <ChevronRightIcon className="w-6 cursor-pointer" onClick={() => console.log("Clicked")} />
             </Styled.Container>
         </Card> 
     )

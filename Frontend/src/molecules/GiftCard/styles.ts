@@ -4,11 +4,26 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     gap: 0.5rem;
+
+    padding-right: 0.5rem;
+    overflow: hidden;
+
+    svg {
+        width: 1.25rem;
+        cursor: pointer;
+        color: ${props => props.theme.colors.primary};
+
+        transition: transform 0.2s ease-in-out;
+
+        &:hover {
+           transform: scale(1.2);
+        }
+    }
 `;
 
 const Image = styled.img`
     object-fit: contain;
-    height: 10rem;
+    height: 5rem;
     border-radius: 0.5rem 0 0 0.5rem;
 `;
 
@@ -19,20 +34,17 @@ const Content = styled.div`
 
     width: 300px;
     height: 100%;
-    padding: 0.25rem;
+    padding: 0.25rem 0.5rem 0.25rem 0.25rem;
+    overflow: hidden;
 
-    svg {
-        width: 1.25rem;
-        cursor: pointer;
+    h2 {
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+
+    span {
+        font-size: 0.75rem;
     }
 `;
 
-const ItemInfo = styled.div`
-    display: flex;
-    justify-content: start;
-    flex-direction: column;
-    
-    height: 100%;
-`;
-
-export default { Container, Image, Content, ItemInfo };
+export default { Container, Image, Content };

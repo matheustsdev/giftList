@@ -1,10 +1,6 @@
 "use client"
 
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import StyledComponentsRegistry from "@/lib/registry";
-import { ThemeProvider } from 'styled-components';
-import { theme } from '@/styles/theme';
 
 export default function RootLayout({
   children,
@@ -20,9 +16,7 @@ export default function RootLayout({
       </head>
       <body>
         <StyledComponentsRegistry>
-          <ThemeProvider theme={theme}>
             {children}
-          </ThemeProvider>
         </StyledComponentsRegistry>
       </body>
     </html>

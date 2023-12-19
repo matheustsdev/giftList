@@ -1,10 +1,18 @@
-import { Flex, Text, Button } from "@/libraries/radix";
+import { useState } from "react";
+import { GiftCard } from "@/molecules";
 
 export default function Home() {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
-    <Flex direction="column" gap="2" align="center" justify="center">
-      <Text>Hello from Radix Themes</Text>
-      <Button>Lets go</Button>
-    </Flex>
+   <div className="p-4">
+      <GiftCard
+        name="Amazon Alexa"
+        description="Smart Speaker"
+        imageSrc="/imgs/products/alexa.jpg"
+        value={10000}
+        onClick={() => setIsOpen(true)}
+      />
+   </div>
   )
 }

@@ -1,18 +1,15 @@
-import { Theme } from '@/libraries/radix';
 import App, { AppContext, AppInitialProps, AppProps } from 'next/app'
+import GlobalStyle from '@/styles/globals'; 
 
-import '@radix-ui/themes/styles.css';
-import '@/styles/globals.css';
- 
 export default function MyApp({
   Component,
   pageProps
 }: AppProps) {
   return (
-    <Theme appearance="dark" accentColor="grass" grayColor="sand" radius="large">
-        <Component {...pageProps} />
-    </Theme>
-
+    <>
+      <GlobalStyle />
+      <Component {...pageProps} />
+    </>
   )
 }
  

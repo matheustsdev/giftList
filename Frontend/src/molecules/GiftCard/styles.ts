@@ -8,6 +8,8 @@ const Container = styled.div`
     padding-right: 0.5rem;
     overflow: hidden;
 
+    height: 5rem;
+
     svg {
         width: 1.25rem;
         cursor: pointer;

@@ -21,7 +21,7 @@ export function GiftCard({ name, description, imageSrc, value, onClick }: IGiftC
                     <h2>{name}</h2>
                     <span>{utils.convertMoney(value)}</span>
                 </Styled.Content>
-                <ChevronRightIcon className="w-6 cursor-pointer" onClick={() => console.log("Clicked")} />
+                <ChevronRightIcon className="w-6 cursor-pointer" onClick={onClick} />
             </Styled.Container>
         </Card> 
     )

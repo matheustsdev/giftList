@@ -5,6 +5,7 @@ export const Container = styled.div`
     display: flex;
 
     width: fit-content;
+    height: fit-content;
     background-color: ${theme.colors.slate900};
     border-radius: 0.5rem;
 

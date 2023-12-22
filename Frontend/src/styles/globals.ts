@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
         max-width: 100vw;
         width: 100vw;
         height: 100vh;
+        padding: 0.5rem;
         overflow-x: hidden;
 
         background: #020617;
@@ -22,6 +23,11 @@ const GlobalStyle = createGlobalStyle`
         color: inherit;
         text-decoration: none;
     }
+
+    .ReactModal__Content {
+            padding: 0;
+            background-color: ${props => props.theme.colors.slate800};
+        }
 `;
 
 export default GlobalStyle;

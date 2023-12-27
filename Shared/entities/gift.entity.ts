@@ -14,7 +14,7 @@ export class Gift {
     @Column("varchar", { length: 255 })
     image_src: string;
     
-    @Column("number")
+    @Column("int")
     price: number;
     
     @Column("bool")

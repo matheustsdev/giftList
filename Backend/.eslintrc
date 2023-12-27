@@ -1,0 +1,68 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.json",
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint/eslint-plugin"],
+  "extends": [
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/@typescript-eslint",
+    "airbnb/base"
+  ],
+  "root": true,
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "rules": {
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/no-array-constructor": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "array-callback-return": "off",
+    "class-methods-use-this": "off",
+    "comma-dangle": ["error", "never"],
+    "dot-notation": "off",
+    "guard-for-in": "off",
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "import/order": "off",
+    "import/prefer-default-export": "off",
+    "linebreak-style": 0,
+    "max-len": ["error", { "comments": 150, "code": 150 }],
+    "no-await-in-loop": "off",
+    "no-continue": "off",
+    "no-empty-function": "off",
+    "no-labels": ["error", {"allowLoop": true}],
+    "no-loop-func": "off",
+    "no-mixed-operators": "off",
+    "no-nested-ternary": "off",
+    "no-param-reassign": "off",
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "no-restricted-syntax": ["off", "ForInStatement", "ForOfStatement"],
+    "no-return-assign": "off",
+    "no-return-await": "off",
+    "no-shadow": "off",
+    "no-unused-expressions": "off",
+    "no-unused-vars": "off",
+    "no-use-before-define": "off",
+    "no-useless-constructor": "off",
+    "object-curly-newline": "off",
+    "padded-blocks": ["error", { "classes": "always" }],
+    "quote-props": "off",
+    "quotes": ["error", "double"],
+    "semi": ["error", "always"],
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "*", "next": "return" },
+      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*"},
+      { "blankLine": "any",    "prev": ["const", "let", "var"], "next": ["const", "let", "var"]}
+    ]
+  }
+}

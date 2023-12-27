@@ -1,11 +1,9 @@
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Gift } from '../../../../Shared/entities/Gift';
+import { Gift } from '../../../../Shared/entities/gift.entity';
 
-class RepositoryService {
+export class RepositoryService {
   constructor(
     @InjectRepository(Gift) public readonly reg_gifts: Repository<Gift>,
   ) {}
 }
-
-export default RepositoryService;

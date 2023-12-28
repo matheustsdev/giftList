@@ -6,6 +6,7 @@ import { AppService } from "./app.service";
 import { RepositoryService } from "@database/repositories/repository.service";
 import { RepositoryModule } from "@database/repositories/repository.module";
 import typeormConfig from "@database/migrations/config";
+import { GiftsModule } from "@modules/gifts/gifts.module";
 
 @Module({
   imports: [
@@ -28,7 +29,10 @@ import typeormConfig from "@database/migrations/config";
       schema: process.env.DB_SCHEMA,
       synchronize: true,
       entities: ["@shared/entities/*.entity.ts"],
-    })
+    }),
+
+    RepositoryModule,
+    GiftsModule
   ],
   controllers: [AppController],
   providers: [AppService, RepositoryService],

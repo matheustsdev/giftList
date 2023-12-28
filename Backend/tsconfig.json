@@ -1,27 +1,22 @@
 {
   "compilerOptions": {
+    "target": "ES2015",
     "module": "commonjs",
+    "sourceMap": true,
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "ES2021",
-    "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
+    "baseUrl": ".",
     "incremental": true,
     "skipLibCheck": true,
-    "strictNullChecks": false,
-    "noImplicitAny": false,
-    "strictBindCallApply": false,
-    "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false,
     "paths": {
       "@shared/*": ["../Shared/*"],
       "@modules/*": ["./src/modules/*"],
       "@database/*": ["./src/database/*"],
       "src/*": ["./src/*"],
     }
-  }
+  },
+  "exclude": ["node_modules", "dist"]
 }

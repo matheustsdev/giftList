@@ -14,7 +14,7 @@ const config = {
   database: process.env.DB_DATABASE,
   schema: process.env.DB_SCHEMA,
   entities: ['src/../../Shared/entities/*.entity.ts'],
-  migrations: ['./*.ts'],
+  migrations: ['src/database/migrations/*.ts'],
   autoLoadEntities: true,
   cli: {
     migrationsDir: 'src/database/migrations',

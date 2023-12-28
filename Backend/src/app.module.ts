@@ -5,7 +5,7 @@ import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { RepositoryService } from "@database/repositories/repository.service";
 import { RepositoryModule } from "@database/repositories/repository.module";
-import typeormConfig from "@database/migrations/config";
+import typeormConfig from "@database/migrations/config/config";
 import { GiftsModule } from "@modules/gifts/gifts.module";
 
 @Module({

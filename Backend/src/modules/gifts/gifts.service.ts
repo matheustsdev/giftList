@@ -12,7 +12,27 @@ export class GiftsService {
         private readonly repositories: RepositoryService
     ) { }
 
-    async findAllActives() {
+    async create(gift: Gift) {
+        try {
+            const newGift = await this.repositories.reg_gifts.save(gift);
+
+            return new StandartResponse([newGift], EResponseStatus.SUCCESS);
+        } catch (e) {
+            return new StandartResponse([], EResponseStatus.ERROR, e.message);
+        }
+    }
+    
+    async readAll() {
+        try {
+            const gifts = await this.repositories.reg_gifts.find();
+
+            return new StandartResponse(gifts, EResponseStatus.SUCCESS)
+        } catch (e) {
+            return new StandartResponse([], EResponseStatus.ERROR, e.message);
+        }
+    }
+    
+    async readAllAvaiables() {
         try {
             const gifts = await this.repositories.reg_gifts.find({
                 where: {
@@ -21,6 +41,105 @@ export class GiftsService {
             })
 
             return new StandartResponse(gifts, EResponseStatus.SUCCESS)
+        } catch (e) {
+            return new StandartResponse([], EResponseStatus.ERROR, e.message);
+        }
+    }
+   
+    async readAllPurchased() {
+        try {
+            const gifts = await this.repositories.reg_gifts.find({
+                where: {
+                    hasPurchased: true
+                }
+            })
+
+            return new StandartResponse(gifts, EResponseStatus.SUCCESS)
+        } catch (e) {
+            return new StandartResponse([], EResponseStatus.ERROR, e.message);
+        }
+    }
+    
+    async readOne(id: string) {
+        try {
+            const gift = await this.repositories.reg_gifts.findOne({
+                where: {
+                    gift_id: id
+                }
+            });
+
+            if (!gift) {
+                return new StandartResponse([], EResponseStatus.ERROR, "Gift not found");
+            }
+
+            return new StandartResponse([gift], EResponseStatus.SUCCESS);
+        } catch (e) {
+            return new StandartResponse([], EResponseStatus.ERROR, e.message);
+        }
+    }
+    
+    async update(id: string, gift: Gift) {
+        try {
+            const giftToUpdate = await this.repositories.reg_gifts.findOne({
+                where: {
+                    gift_id: id
+                }
+            });
+
+            if (!giftToUpdate) {
+                return new StandartResponse([], EResponseStatus.ERROR, "Gift not found");
+            }
+
+            const updatedGift = await this.repositories.reg_gifts.save({
+                ...giftToUpdate,
+                ...gift
+            });
+
+            return new StandartResponse([updatedGift], EResponseStatus.SUCCESS);
+        } catch (e) {
+            return new StandartResponse([], EResponseStatus.ERROR, e.message);
+        }
+    }
+    
+    async purchaseGift(id: string, purchaser: string) {
+        try {
+            const gift = await this.repositories.reg_gifts.findOne({
+                where: {
+                    gift_id: id
+                }
+            });
+
+            if (!gift) {
+                return new StandartResponse([], EResponseStatus.ERROR, "Gift not found");
+            }
+
+            gift.hasPurchased = true;
+            gift.purchased_date = new Date();
+            gift.purchasedBy = purchaser;
+
+            await this.repositories.reg_gifts.save(gift);
+
+            return new StandartResponse([gift], EResponseStatus.SUCCESS);
+        } catch (e) {
+            return new StandartResponse([], EResponseStatus.ERROR, e.message);
+        }
+    }
+    
+    async delete(id: string) {
+        try {
+            const gift = await this.repositories.reg_gifts.findOne({
+                where: {
+                    gift_id: id
+                }
+            });
+
+            if (!gift) {
+                return new StandartResponse([], EResponseStatus.ERROR, "Gift not found");
+            }
+
+            await this.repositories.reg_gifts.delete(gift);
+
+            return new StandartResponse([], EResponseStatus.SUCCESS);
         } catch (e) {
             return new StandartResponse([], EResponseStatus.ERROR, e.message);
         }

@@ -20,9 +20,9 @@ export class Gift {
     @Column("bool")
     hasPurchased: boolean;
 
-    @Column("varchar", { length: 255 })
-    purchasedBy: string;
+    @Column("varchar", { length: 255, nullable: true  })
+    purchasedBy?: string;
     
-    @Column("date")
-    purchased_date: Date;
+    @Column("date", { nullable: true })
+    purchased_date?: Date;
 }

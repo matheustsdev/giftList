@@ -7,7 +7,6 @@ import { RepositoryService } from "@database/repositories/repository.service";
 import { RepositoryModule } from "@database/repositories/repository.module";
 import typeormConfig from "@database/migrations/config/config";
 import { GiftsModule } from "@modules/gifts/gifts.module";
-import { PaymentsModule } from "@modules/payments/payments.module";
 
 @Module({
   imports: [
@@ -33,8 +32,7 @@ import { PaymentsModule } from "@modules/payments/payments.module";
     }),
 
     RepositoryModule,
-    GiftsModule,
-    PaymentsModule
+    GiftsModule
   ],
   controllers: [AppController],
   providers: [AppService, RepositoryService],

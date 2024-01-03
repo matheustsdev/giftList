@@ -17,9 +17,6 @@ export class Gift {
     @Column("int")
     price: number;
     
-    @Column("varchar", { length: 255 })
-    stripe_id: string;
-    
     @Column("bool")
     hasPurchased: boolean;
 

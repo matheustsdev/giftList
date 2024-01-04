@@ -6,7 +6,8 @@ export const Container = styled.div`
 
     width: fit-content;
     height: fit-content;
-    background-color: ${theme.colors.slate900};
+    background-color: transparent;
+    border: 3px solid ${theme.colors.green800};
     border-radius: 0.5rem;
 
     color: ${theme.colors.slate300};

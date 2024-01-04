@@ -1,6 +1,5 @@
-import { Card } from "@/atoms";
+import { Card, PrimaryButton, SecondaryButton } from "@/atoms";
 import { utils } from "@/utils";
-import { ChevronRightIcon } from "@heroicons/react/24/outline";
 
 import Styled from "./styles";
 
@@ -16,12 +15,16 @@ export function GiftCard({ name, description, imageSrc, value, onClick }: IGiftC
     return (
         <Card>
             <Styled.Container>
-                <Styled.Image src={imageSrc} alt="placeholder" className="object-contain h-24 rounded-l-lg" />
-                <Styled.Content className="flex items-center justify-between w-72 h-full p-2">
-                    <h2>{name}</h2>
-                    <span>{utils.convertMoney(value)}</span>
-                </Styled.Content>
-                <ChevronRightIcon className="w-6 cursor-pointer" onClick={onClick} />
+                <h2>{name.toUpperCase()}</h2>
+                <Styled.Image src={imageSrc} alt="placeholder" />
+                <Styled.ButtonsContainer>
+                    <SecondaryButton href="/secondary">
+                        Marcar como pago
+                    </SecondaryButton>
+                    <PrimaryButton href="/primary">
+                        ENVIAR PIX - {utils.convertMoney(value)}
+                    </PrimaryButton>
+                </Styled.ButtonsContainer>
             </Styled.Container>
         </Card> 
     )

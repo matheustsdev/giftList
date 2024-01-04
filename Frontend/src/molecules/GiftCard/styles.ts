@@ -3,12 +3,11 @@ import styled from 'styled-components';
 const Container = styled.div`
     display: flex;
     align-items: center;
+    flex-direction: column;
     gap: 0.5rem;
 
-    padding-right: 0.5rem;
-    overflow: hidden;
-
-    height: 5rem;
+    padding: 1rem 0.5rem;
+    width: 300px;
 
     svg {
         width: 1.25rem;
@@ -21,27 +20,14 @@ const Container = styled.div`
            transform: scale(1.2);
         }
     }
-`;
-
-const Image = styled.img`
-    object-fit: contain;
-    height: 5rem;
-    border-radius: 0.5rem 0 0 0.5rem;
-`;
-
-const Content = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    width: 300px;
-    height: 100%;
-    padding: 0.25rem 0.5rem 0.25rem 0.25rem;
-    overflow: hidden;
 
     h2 {
         font-size: 1.25rem;
+        line-height: 1.25rem;
         font-weight: 700;
+        padding-bottom: 1rem;
+
+        color: ${({ theme }) => theme.colors.green800}
     }
 
     span {
@@ -49,4 +35,20 @@ const Content = styled.div`
     }
 `;
 
-export default { Container, Image, Content };
+const Image = styled.img`
+    object-fit: contain;
+    width: 100%;
+    border-radius: 0.5rem 0 0 0.5rem;
+`;
+
+const ButtonsContainer = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    
+    width: 100%;
+    padding: 1.5rem 1rem 0 1rem;
+`;
+
+export default { Container, Image, ButtonsContainer };

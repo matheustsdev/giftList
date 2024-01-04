@@ -2,6 +2,7 @@ import { Card, PrimaryButton, SecondaryButton } from "@/atoms";
 import { utils } from "@/utils";
 
 import Styled from "./styles";
+import { bebasNeue } from "@/app/fonts";
 
 interface IGiftCardProps {
     name: string;
@@ -15,7 +16,7 @@ export function GiftCard({ name, description, imageSrc, value, onClick }: IGiftC
     return (
         <Card>
             <Styled.Container>
-                <h2>{name.toUpperCase()}</h2>
+                <h2 className={bebasNeue.className}>{name.toUpperCase()}</h2>
                 <Styled.Image src={imageSrc} alt="placeholder" />
                 <Styled.ButtonsContainer>
                     <SecondaryButton href="/secondary">

@@ -9,8 +9,6 @@ export const Container = styled.div`
     background-color: transparent;
     border: 3px solid ${theme.colors.green800};
     border-radius: 0.5rem;
-
-    color: ${theme.colors.slate300};
 `;
 
 export default { Container };

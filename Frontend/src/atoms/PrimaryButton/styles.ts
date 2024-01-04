@@ -14,7 +14,7 @@ export const Container = styled(Link)`
 
     font-size: 1rem;
     line-height: 1rem;
-    text-decoration: none;
+    color: ${({ theme }) => theme.colors.slate200};
 
     cursor: pointer;
 `;

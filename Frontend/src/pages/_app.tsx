@@ -2,6 +2,7 @@ import App, { AppContext, AppInitialProps, AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '@/styles/globals'; 
 import { theme } from '@/styles/theme';
+import { inter } from '@/app/fonts';
 
 export default function MyApp({
   Component,
@@ -9,8 +10,10 @@ export default function MyApp({
 }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Component {...pageProps} />
+      <main className={inter.className}>
+        <GlobalStyle />
+        <Component {...pageProps} />
+      </main>
     </ThemeProvider>
   )
 }

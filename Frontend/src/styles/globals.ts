@@ -15,8 +15,7 @@ const GlobalStyle = createGlobalStyle`
         padding: 0.5rem;
         overflow-x: hidden;
 
-        background: #020617;
-        font-family: "Inter", sans-serif;
+        color: ${({ theme }) => theme.colors.slate600}
     }
 
     a {

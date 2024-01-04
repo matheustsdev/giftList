@@ -9,20 +9,8 @@ const Container = styled.div`
     padding: 1rem 0.5rem;
     width: 300px;
 
-    svg {
-        width: 1.25rem;
-        cursor: pointer;
-        color: ${props => props.theme.colors.primary};
-
-        transition: transform 0.2s ease-in-out;
-
-        &:hover {
-           transform: scale(1.2);
-        }
-    }
-
     h2 {
-        font-size: 1.25rem;
+        font-size: 2rem;
         line-height: 1.25rem;
         font-weight: 700;
         padding-bottom: 1rem;

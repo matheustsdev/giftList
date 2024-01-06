@@ -1,6 +1,8 @@
 "use client"
 
 import StyledComponentsRegistry from "@/lib/registry";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function RootLayout({
   children,

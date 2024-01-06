@@ -5,26 +5,27 @@ import { Gift } from "@shared/entities/gift.entity";
 import { StandartResponse } from "@shared/helpers/StandartResponse";
 import { cinzel } from "@/app/fonts";
 import { api } from "@/services/api";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
   const [giftsList, setGiftsList] = useState<Gift[]>([]);
   const [selectedGift, setSelectedGift] = useState<Gift>({} as Gift);
-  const [selectedGiftPayment, setSelectedGiftPayment] = useState<Gift>({} as Gift);
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const [isSelectGiftModalOpen, setIsSelectGiftModalOpen] = useState(false);
-
+  
   async function getAllGifts() {
     try {
       const response = await api.get<StandartResponse<Gift>>('/gifts/available');
       
       if (response.data.status !== "SUCCESS") {
-        console.log(response.data.message);
+        toast.error(response.data.message);
         return;
       }
       
       setGiftsList(response.data.result);
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      toast.error(error.message);
     }
   }
   
@@ -34,7 +35,6 @@ export default function Home() {
   }
   
   const handlePaymentClick = (gift: Gift) => {
-    setSelectedGiftPayment(gift);
     setIsPaymentModalOpen(true);
   }
   
@@ -70,12 +70,24 @@ export default function Home() {
               ))
             }
           </Styled.Content>
+          <ToastContainer 
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
       </Styled.HomeContainer>
       <SelectGiftModal 
-      isOpen={isSelectGiftModalOpen} 
-      onClose={() => setIsSelectGiftModalOpen(false)}
-      onConfirm={handleOnConfirm}
-      gift={selectedGift} 
+        isOpen={isSelectGiftModalOpen} 
+        onClose={() => setIsSelectGiftModalOpen(false)}
+        onConfirm={handleOnConfirm}
+        gift={selectedGift} 
       />
       <PaymenModal
         isOpen={isPaymentModalOpen}

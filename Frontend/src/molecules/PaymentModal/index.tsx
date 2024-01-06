@@ -1,4 +1,4 @@
-import { Modal, PrimaryButton, SecondaryButton } from "@/atoms";
+import { Modal, PrimaryButton } from "@/atoms";
 import { inter } from "@/app/fonts";
 import { useRouter } from "next/navigation";
 

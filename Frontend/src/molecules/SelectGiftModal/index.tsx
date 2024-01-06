@@ -1,9 +1,11 @@
 import { Modal, PrimaryButton, SecondaryButton } from "@/atoms";
 import { api } from "@/services/api";
 import { Gift } from "@shared/entities/gift.entity";
+import { bebasNeue, inter } from "@/app/fonts";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Styled from "./styles";
-import { bebasNeue, inter } from "@/app/fonts";
 
 interface ISelectGiftModalProps {
     isOpen: boolean;
@@ -15,10 +17,17 @@ interface ISelectGiftModalProps {
 export function SelectGiftModal({ isOpen, onClose, onConfirm, gift }: ISelectGiftModalProps) {
     const handleConfirm = async () => {
         try {
-            await api.patch(`/gifts/purchase/${gift.gift_id}`)
+            const response = await api.patch(`/gifts/purchase/${gift.gift_id}`)
+            
+            if (response.data.status !== "SUCCESS") {
+                toast.error(response.data.message);
+                return;
+            }
+            
+            toast.success("response.data.message");
             onConfirm();
-        } catch (error) {
-            console.log(error);
+        } catch (error: any) {
+            toast.error(error.message);
         }
     }
     

@@ -4,7 +4,6 @@ import Styled from './styles';
 
 interface ISecondaryButtonProps extends ButtonHTMLAttributes<HTMLElement> {
     children: ReactNode;
-    href: string
 }
 
 export function SecondaryButton({ children, ...rest }: ISecondaryButtonProps) {

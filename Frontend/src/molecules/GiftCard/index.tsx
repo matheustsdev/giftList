@@ -1,9 +1,9 @@
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import { Card, PrimaryButton, SecondaryButton } from "@/atoms";
 import { utils } from "@/utils";
 import { bebasNeue } from "@/app/fonts";
-import { SelectGiftModal } from "../SelectGiftModal";
 import { Gift } from "@shared/entities/gift.entity";
 
 import Styled from "./styles";
@@ -15,22 +15,23 @@ interface IGiftCardProps {
 
 export function GiftCard({ gift, onSelectGift }: IGiftCardProps) {
     const { image_src, price, name } = gift;
+    const router = useRouter();
     
     return (
         <Card>
             <Styled.Container>
                 <h2 className={bebasNeue.className}>{name.toUpperCase()}</h2>
                 <Styled.Image src={image_src} alt="placeholder" />
-                <Styled.ButtonsContainer>
+                <Styled.ButtonsContainer>   
                     <Styled.SecondaryButtonContainer>
-                        <SecondaryButton href="" onClick={() => onSelectGift(gift)}>
+                        <SecondaryButton onClick={() => onSelectGift(gift)}>
                             Escolher
                         </SecondaryButton>
-                        <SecondaryButton href="/secondary">
+                        <SecondaryButton onClick={() => gift.reference_url && router.push(gift.reference_url)}>
                             Referência
                         </SecondaryButton>
                     </Styled.SecondaryButtonContainer>
-                    <PrimaryButton href="/primary">
+                    <PrimaryButton>
                         ENVIAR PIX - {utils.convertMoney(price)}
                     </PrimaryButton>
                 </Styled.ButtonsContainer>

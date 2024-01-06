@@ -111,6 +111,10 @@ export class GiftsService {
                 return new StandartResponse([], EResponseStatus.ERROR, "Gift not found");
             }
 
+            if (gift.hasPurchased) {
+                return new StandartResponse([], EResponseStatus.ERROR, "Gift already purchased");
+            }
+            
             gift.hasPurchased = true;
             gift.purchased_date = new Date();
 

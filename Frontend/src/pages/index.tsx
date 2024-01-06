@@ -3,6 +3,7 @@ import { GiftCard, DetailsModal } from "@/molecules";
 import Styled from "@/styles/pages";
 import Modal from "react-modal";
 import { Gift } from "@/types";
+import { cinzel } from "@/app/fonts";
 
 const gift: Gift = {
   name: "Amazon Alexa",
@@ -19,6 +20,13 @@ export default function Home() {
 
   return (
    <Styled.HomeContainer>
+      <Styled.Cover>
+        <Styled.TitleCard>
+          <Styled.Title className={cinzel.className}>
+            Lista de casa nova | Priscila e Teixeira
+          </Styled.Title>
+        </Styled.TitleCard>
+      </Styled.Cover>
       <GiftCard
         name="Amazon Alexa"
         description="Smart Speaker"

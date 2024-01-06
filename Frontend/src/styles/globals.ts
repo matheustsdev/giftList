@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
         max-width: 100vw;
         width: 100vw;
         height: 100vh;
-        padding: 0.5rem;
+        padding: 0;
         overflow-x: hidden;
 
         color: ${({ theme }) => theme.colors.slate600}

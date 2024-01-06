@@ -27,18 +27,85 @@ export default function Home() {
           </Styled.Title>
         </Styled.TitleCard>
       </Styled.Cover>
-      <GiftCard
-        name="Amazon Alexa"
-        description="Smart Speaker"
-        imageSrc="/imgs/products/alexa.jpg"
-        value={10000}
-        onClick={() => setIsOpen(true)}
-      />
-      <DetailsModal
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        gift={gift}
-      />
+      <Styled.Content>
+        <GiftCard
+          name="Amazon Alexa"
+          description="Smart Speaker"
+          imageSrc="/imgs/products/alexa.jpg"
+          value={10000}
+          onClick={() => setIsOpen(true)}
+        />
+        <GiftCard
+          name="Amazon Alexa"
+          description="Smart Speaker"
+          imageSrc="/imgs/products/alexa.jpg"
+          value={10000}
+          onClick={() => setIsOpen(true)}
+        />
+        <GiftCard
+          name="Amazon Alexa"
+          description="Smart Speaker"
+          imageSrc="/imgs/products/alexa.jpg"
+          value={10000}
+          onClick={() => setIsOpen(true)}
+        />
+        <GiftCard
+          name="Amazon Alexa"
+          description="Smart Speaker"
+          imageSrc="/imgs/products/alexa.jpg"
+          value={10000}
+          onClick={() => setIsOpen(true)}
+        />
+        <GiftCard
+          name="Amazon Alexa"
+          description="Smart Speaker"
+          imageSrc="/imgs/products/alexa.jpg"
+          value={10000}
+          onClick={() => setIsOpen(true)}
+        />
+        <GiftCard
+          name="Amazon Alexa"
+          description="Smart Speaker"
+          imageSrc="/imgs/products/alexa.jpg"
+          value={10000}
+          onClick={() => setIsOpen(true)}
+        />
+        <GiftCard
+          name="Amazon Alexa"
+          description="Smart Speaker"
+          imageSrc="/imgs/products/alexa.jpg"
+          value={10000}
+          onClick={() => setIsOpen(true)}
+        />
+        <GiftCard
+          name="Amazon Alexa"
+          description="Smart Speaker"
+          imageSrc="/imgs/products/alexa.jpg"
+          value={10000}
+          onClick={() => setIsOpen(true)}
+        />
+        <GiftCard
+          name="Amazon Alexa"
+          description="Smart Speaker"
+          imageSrc="/imgs/products/alexa.jpg"
+          value={10000}
+          onClick={() => setIsOpen(true)}
+        />
+        <GiftCard
+          name="Amazon Alexa"
+          description="Smart Speaker"
+          imageSrc="/imgs/products/alexa.jpg"
+          value={10000}
+          onClick={() => setIsOpen(true)}
+        />
+        <GiftCard
+          name="Amazon Alexa"
+          description="Smart Speaker"
+          imageSrc="/imgs/products/alexa.jpg"
+          value={10000}
+          onClick={() => setIsOpen(true)}
+        />
+      </Styled.Content>
    </Styled.HomeContainer>
   )
 }

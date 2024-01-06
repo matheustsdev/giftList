@@ -1,10 +1,14 @@
 import styled from "styled-components";
 
 const HomeContainer = styled.div`
-    display: grid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    padding-bottom: 4rem;
 `;
 
 const Cover = styled.div`
@@ -53,10 +57,14 @@ const Title = styled.h1`
 
 const Content = styled.main`
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(300px, auto));
+    justify-items: center;
+    gap: 1rem;
 
     width: 100%;
     height: 100%;
+    padding: 0 1.5rem;
+    
 `;
 
 export default { HomeContainer, Cover, TitleCard, Title, Content };

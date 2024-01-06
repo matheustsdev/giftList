@@ -17,6 +17,12 @@ export class Gift {
     @Column("int")
     price: number;
     
+    @Column("varchar", { length: 255, nullable: true })
+    kit_name?: string;
+    
+    @Column("varchar", { length: 255, nullable: true })
+    reference_url?: string;
+    
     @Column("bool")
     hasPurchased: boolean;
 

@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
-import { GiftCard } from "@/molecules";
+import { GiftCard, SelectGiftModal, PaymenModal } from "@/molecules";
 import Styled from "@/styles/pages";
 import { Gift } from "@shared/entities/gift.entity";
 import { StandartResponse } from "@shared/helpers/StandartResponse";
 import { cinzel } from "@/app/fonts";
 import { api } from "@/services/api";
-import { SelectGiftModal } from "@/molecules/SelectGiftModal";
 
 export default function Home() {
   const [giftsList, setGiftsList] = useState<Gift[]>([]);
   const [selectedGift, setSelectedGift] = useState<Gift>({} as Gift);
+  const [selectedGiftPayment, setSelectedGiftPayment] = useState<Gift>({} as Gift);
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const [isSelectGiftModalOpen, setIsSelectGiftModalOpen] = useState(false);
 
   async function getAllGifts() {
@@ -30,6 +31,11 @@ export default function Home() {
   const handleSelectGift = (gift: Gift) => {
     setSelectedGift(gift);
     setIsSelectGiftModalOpen(true);
+  }
+  
+  const handlePaymentClick = (gift: Gift) => {
+    setSelectedGiftPayment(gift);
+    setIsPaymentModalOpen(true);
   }
   
   const handleOnConfirm = async () => {
@@ -59,6 +65,7 @@ export default function Home() {
                   key={gift.gift_id}
                   gift={gift}
                   onSelectGift={handleSelectGift}
+                  onPaymentClick={handlePaymentClick}
                 />
               ))
             }
@@ -69,6 +76,10 @@ export default function Home() {
       onClose={() => setIsSelectGiftModalOpen(false)}
       onConfirm={handleOnConfirm}
       gift={selectedGift} 
+      />
+      <PaymenModal
+        isOpen={isPaymentModalOpen}
+        onClose={() => setIsPaymentModalOpen(false)}
       />
     </>
   )

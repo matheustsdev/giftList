@@ -11,9 +11,10 @@ import Styled from "./styles";
 interface IGiftCardProps {
     gift: Gift;
     onSelectGift: (gift: Gift) => void;
+    onPaymentClick: (gift: Gift) => void;
 }
 
-export function GiftCard({ gift, onSelectGift }: IGiftCardProps) {
+export function GiftCard({ gift, onSelectGift, onPaymentClick }: IGiftCardProps) {
     const { image_src, price, name } = gift;
     const router = useRouter();
     
@@ -31,7 +32,7 @@ export function GiftCard({ gift, onSelectGift }: IGiftCardProps) {
                             Referência
                         </SecondaryButton>
                     </Styled.SecondaryButtonContainer>
-                    <PrimaryButton>
+                    <PrimaryButton onClick={() => onPaymentClick(gift)}>
                         ENVIAR PIX - {utils.convertMoney(price)}
                     </PrimaryButton>
                 </Styled.ButtonsContainer>

@@ -46,6 +46,7 @@ const SecondaryButtonContainer = styled.div`
     gap: 0.25rem;
 
     width: 100%;
+    max-width: 250px;
 `;
 
 export default { Container, Image, ButtonsContainer, SecondaryButtonContainer };

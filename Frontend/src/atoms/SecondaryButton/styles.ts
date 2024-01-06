@@ -7,6 +7,7 @@ export const Container = styled.button`
     justify-content: center;
 
     width: 100%;
+    max-width: 250px;
     background-color: transparent;
     padding: 0.75rem 0;
     

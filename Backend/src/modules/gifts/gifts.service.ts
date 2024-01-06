@@ -1,10 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import { Gift } from "@shared/entities/gift.entity";
 import { RepositoryService } from '@database/repositories/repository.service';
-import { StandartResponse } from 'src/helpers/StandartResponse';
-import { EResponseStatus } from 'src/constants/EResponseStatus';
+import { StandartResponse } from '@shared/helpers/StandartResponse';
+import { EResponseStatus } from '@shared/constants/EResponseStatus';
 
 @Injectable()
 export class GiftsService {
@@ -16,7 +14,7 @@ export class GiftsService {
         try {
             const newGift = await this.repositories.reg_gifts.save(gift);
 
-            return new StandartResponse([newGift], EResponseStatus.SUCCESS);
+            return new StandartResponse<Gift>([newGift], EResponseStatus.SUCCESS);
         } catch (e) {
             return new StandartResponse([], EResponseStatus.ERROR, e.message);
         }
@@ -26,7 +24,7 @@ export class GiftsService {
         try {
             const gifts = await this.repositories.reg_gifts.find();
 
-            return new StandartResponse(gifts, EResponseStatus.SUCCESS)
+            return new StandartResponse<Gift>(gifts, EResponseStatus.SUCCESS)
         } catch (e) {
             return new StandartResponse([], EResponseStatus.ERROR, e.message);
         }
@@ -40,7 +38,7 @@ export class GiftsService {
                 }
             })
 
-            return new StandartResponse(gifts, EResponseStatus.SUCCESS)
+            return new StandartResponse<Gift>(gifts, EResponseStatus.SUCCESS)
         } catch (e) {
             return new StandartResponse([], EResponseStatus.ERROR, e.message);
         }
@@ -54,7 +52,7 @@ export class GiftsService {
                 }
             })
 
-            return new StandartResponse(gifts, EResponseStatus.SUCCESS)
+            return new StandartResponse<Gift>(gifts, EResponseStatus.SUCCESS)
         } catch (e) {
             return new StandartResponse([], EResponseStatus.ERROR, e.message);
         }
@@ -72,7 +70,7 @@ export class GiftsService {
                 return new StandartResponse([], EResponseStatus.ERROR, "Gift not found");
             }
 
-            return new StandartResponse([gift], EResponseStatus.SUCCESS);
+            return new StandartResponse<Gift>([gift], EResponseStatus.SUCCESS);
         } catch (e) {
             return new StandartResponse([], EResponseStatus.ERROR, e.message);
         }
@@ -87,7 +85,7 @@ export class GiftsService {
             });
 
             if (!giftToUpdate) {
-                return new StandartResponse([], EResponseStatus.ERROR, "Gift not found");
+                return new StandartResponse<Gift>([], EResponseStatus.ERROR, "Gift not found");
             }
 
             const updatedGift = await this.repositories.reg_gifts.save({
@@ -95,7 +93,7 @@ export class GiftsService {
                 ...gift
             });
 
-            return new StandartResponse([updatedGift], EResponseStatus.SUCCESS);
+            return new StandartResponse<Gift>([updatedGift], EResponseStatus.SUCCESS);
         } catch (e) {
             return new StandartResponse([], EResponseStatus.ERROR, e.message);
         }
@@ -119,7 +117,7 @@ export class GiftsService {
 
             await this.repositories.reg_gifts.save(gift);
 
-            return new StandartResponse([gift], EResponseStatus.SUCCESS);
+            return new StandartResponse<Gift>([gift], EResponseStatus.SUCCESS);
         } catch (e) {
             return new StandartResponse([], EResponseStatus.ERROR, e.message);
         }
@@ -139,7 +137,7 @@ export class GiftsService {
 
             await this.repositories.reg_gifts.delete(gift);
 
-            return new StandartResponse([], EResponseStatus.SUCCESS);
+            return new StandartResponse<Gift>([], EResponseStatus.SUCCESS);
         } catch (e) {
             return new StandartResponse([], EResponseStatus.ERROR, e.message);
         }

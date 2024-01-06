@@ -22,6 +22,10 @@ const Container = styled.div`
         font-size: 1rem;
         text-align: center;
     }
+    
+    @media(max-width: 768px) {
+        width: 90vw;
+    }
 `;
 
 const GiftContainer = styled.div`

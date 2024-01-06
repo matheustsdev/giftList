@@ -7,14 +7,14 @@ export const Container = styled(Link)`
     justify-content: center;
 
     width: 100%;
-    background-color: ${({ theme }) => theme.colors.slate800};
+    background-color: ${({ theme }) => theme.colors.black};
     padding: 0.75rem 0;
 
     border-radius: 1.5rem;
 
     font-size: 1rem;
     line-height: 1rem;
-    color: ${({ theme }) => theme.colors.slate200};
+    color: ${({ theme }) => theme.colors.white};
 
     cursor: pointer;
 `;

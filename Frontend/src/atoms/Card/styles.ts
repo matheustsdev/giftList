@@ -7,7 +7,7 @@ export const Container = styled.div`
     width: fit-content;
     height: fit-content;
     background-color: transparent;
-    border: 3px solid ${theme.colors.green800};
+    border: 3px solid ${theme.colors.brown};
     border-radius: 0.5rem;
 `;
 

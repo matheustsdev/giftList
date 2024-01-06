@@ -15,7 +15,7 @@ const Container = styled.div`
         font-weight: 700;
         padding-bottom: 1rem;
 
-        color: ${({ theme }) => theme.colors.green800}
+        color: ${({ theme }) => theme.colors.brown};
     }
 
     span {

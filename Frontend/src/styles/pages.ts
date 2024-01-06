@@ -43,7 +43,7 @@ const TitleCard = styled.div`
     height: 100%;
 
     padding: 1.5rem;
-    background-color: ${({ theme }) => theme.colors.slate100};
+    background-color: ${({ theme }) => theme.colors.white};
 `;
 
 const Title = styled.h1`
@@ -53,13 +53,13 @@ const Title = styled.h1`
 
     font-size: 4rem;
     font-weight: 700;
-    color: ${({ theme }) => theme.colors.slate950};
+    color: ${({ theme }) => theme.colors.black};
 
     width: 100%;
     height: 100%;
 
-    border: 1px solid ${({ theme }) => theme.colors.slate400};
-    background-color: ${({ theme }) => theme.colors.slate100};
+    border: 1px solid ${({ theme }) => theme.colors.black};
+    background-color: ${({ theme }) => theme.colors.white};
 
     @media(max-width: 768px) {
         font-size: 1.75rem;

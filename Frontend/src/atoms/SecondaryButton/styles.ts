@@ -10,7 +10,7 @@ export const Container = styled(Link)`
     background-color: transparent;
     padding: 0.75rem 0;
     
-    border: 2px solid ${({ theme }) => theme.colors.green800};
+    border: 2px solid ${({ theme }) => theme.colors.brown};
     border-radius: 1.5rem;
 
     font-size: 1rem;

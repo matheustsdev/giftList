@@ -39,4 +39,13 @@ const ButtonsContainer = styled.div`
     padding: 1.5rem 1rem 0 1rem;
 `;
 
-export default { Container, Image, ButtonsContainer };
+const SecondaryButtonContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.25rem;
+
+    width: 100%;
+`;
+
+export default { Container, Image, ButtonsContainer, SecondaryButtonContainer };

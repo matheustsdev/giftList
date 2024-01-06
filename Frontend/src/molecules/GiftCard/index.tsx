@@ -19,9 +19,14 @@ export function GiftCard({ name, description, imageSrc, value, onClick }: IGiftC
                 <h2 className={bebasNeue.className}>{name.toUpperCase()}</h2>
                 <Styled.Image src={imageSrc} alt="placeholder" />
                 <Styled.ButtonsContainer>
-                    <SecondaryButton href="/secondary">
-                        Marcar como pago
-                    </SecondaryButton>
+                    <Styled.SecondaryButtonContainer>
+                        <SecondaryButton href="/secondary">
+                            Escolher
+                        </SecondaryButton>
+                        <SecondaryButton href="/secondary">
+                            Referência
+                        </SecondaryButton>
+                    </Styled.SecondaryButtonContainer>
                     <PrimaryButton href="/primary">
                         ENVIAR PIX - {utils.convertMoney(value)}
                     </PrimaryButton>

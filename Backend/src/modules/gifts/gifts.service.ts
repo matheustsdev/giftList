@@ -99,7 +99,7 @@ export class GiftsService {
         }
     }
     
-    async purchaseGift(id: string, purchaser: string) {
+    async purchaseGift(id: string) {
         try {
             const gift = await this.repositories.reg_gifts.findOne({
                 where: {
@@ -113,7 +113,6 @@ export class GiftsService {
 
             gift.hasPurchased = true;
             gift.purchased_date = new Date();
-            gift.purchasedBy = purchaser;
 
             await this.repositories.reg_gifts.save(gift);
 

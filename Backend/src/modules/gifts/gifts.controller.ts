@@ -41,9 +41,8 @@ export class GiftsController {
     @Patch("purchase/:id")
     async purchaseGift(
         @Param("id") id: string,
-        @Query("purchaser") purchaser: string
     ) {
-        return await this.giftsService.purchaseGift(id, purchaser);
+        return await this.giftsService.purchaseGift(id);
     }
     
     @Patch(":id")

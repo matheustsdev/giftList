@@ -12,7 +12,8 @@ export function Modal({ isOpen, onClose, children }: IDetailsModalProps) {
 
     return (
         <LibModal 
-            isOpen={isOpen} 
+            isOpen={isOpen}
+            ariaHideApp={false}
             onRequestClose={onClose} 
             style={{
             content: {

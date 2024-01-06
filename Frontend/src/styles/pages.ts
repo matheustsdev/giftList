@@ -25,6 +25,13 @@ const Cover = styled.div`
     -webkit-box-shadow: 0px 12px 12px 0px rgba(0,0,0,0.3);
     -moz-box-shadow: 0px 12px 12px 0px rgba(0,0,0,0.3);
     box-shadow: 0px 12px 12px 0px rgba(0,0,0,0.3);
+
+    @media(max-width: 768px) {
+        height: 50vh;
+
+        padding: 4rem 2rem;
+        margin-bottom: 5rem;
+    }
 `;
 
 const TitleCard = styled.div`
@@ -53,6 +60,11 @@ const Title = styled.h1`
 
     border: 1px solid ${({ theme }) => theme.colors.slate400};
     background-color: ${({ theme }) => theme.colors.slate100};
+
+    @media(max-width: 768px) {
+        font-size: 1.75rem;
+        text-align: center;
+    }
 `;
 
 const Content = styled.main`

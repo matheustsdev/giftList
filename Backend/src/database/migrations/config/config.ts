@@ -1,10 +1,11 @@
 import * as dotenv from "dotenv";
 import { registerAs } from "@nestjs/config"
 import { DataSource, DataSourceOptions } from "typeorm";
+import { SeederOptions } from "typeorm-extension";
 
 dotenv.config();
 
-const config = {
+const config: DataSourceOptions & SeederOptions = {
   name: 'default',
   type: 'postgres',
   host: process.env.DB_HOST,
@@ -15,11 +16,7 @@ const config = {
   schema: process.env.DB_SCHEMA,
   entities: ['src/../../Shared/entities/*.entity.ts'],
   migrations: ['src/database/migrations/*.ts'],
-  autoLoadEntities: true,
-  cli: {
-    migrationsDir: 'src/database/migrations',
-    entitiesDir: 'src/../../Shared/entities',
-  },
+  seeds: ['src/database/seeds/*.ts']
 };
 
 export default registerAs("typeorm", () => config);

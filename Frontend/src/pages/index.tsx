@@ -6,12 +6,14 @@ import { Gift } from "@shared/entities/gift.entity";
 import { StandartResponse } from "@shared/helpers/StandartResponse";
 import { cinzel } from "@/app/fonts";
 import { api } from "@/services/api";
+import { SelectGiftModal } from "@/molecules/SelectGiftModal";
 
 export default function Home() {
   const [giftsList, setGiftsList] = useState<Gift[]>([]);
-  const [isOpen, setIsOpen] = useState(false)
+  const [selectedGift, setSelectedGift] = useState<Gift>({} as Gift);
+  const [isSelectGiftModalOpen, setIsSelectGiftModalOpen] = useState(false);
 
-  const getAllGifts = async () => {
+  async function getAllGifts() {
     try {
       const response = await api.get<StandartResponse<Gift>>('/gifts');
       console.log(response);
@@ -22,33 +24,38 @@ export default function Home() {
     }
   }
   
+  function handleSelectGift(gift: Gift) {
+    setSelectedGift(gift);
+    setIsSelectGiftModalOpen(true);
+  }
+  
   useEffect(() => {
     getAllGifts();
   }, []);
 
   return (
-   <Styled.HomeContainer>
-      <Styled.Cover>
-        <Styled.TitleCard>
-          <Styled.Title className={cinzel.className}>
-            Lista de casa nova | Priscila e Teixeira
-          </Styled.Title>
-        </Styled.TitleCard>
-      </Styled.Cover>
-      <Styled.Content>
-        {
-          giftsList.map((gift) => (
-            <GiftCard
-              key={gift.gift_id}
-              name={gift.name}
-              description={gift.description}
-              imageSrc={gift.image_src}
-              value={gift.price}
-              onClick={() => setIsOpen(true)}
-            />
-          ))
-        }
-      </Styled.Content>
-   </Styled.HomeContainer>
+    <>
+      <Styled.HomeContainer>
+          <Styled.Cover>
+            <Styled.TitleCard>
+              <Styled.Title className={cinzel.className}>
+                Lista de casa nova | Priscila e Teixeira
+              </Styled.Title>
+            </Styled.TitleCard>
+          </Styled.Cover>
+          <Styled.Content>
+            {
+              giftsList.map((gift) => (
+                <GiftCard
+                  key={gift.gift_id}
+                  gift={gift}
+                  onSelectGift={handleSelectGift}
+                />
+              ))
+            }
+          </Styled.Content>
+      </Styled.HomeContainer>
+      <SelectGiftModal isOpen={isSelectGiftModalOpen} onClose={() => setIsSelectGiftModalOpen(false)} gift={selectedGift} />
+    </>
   )
 }

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Container = styled.div`
     display: flex;
@@ -7,9 +7,9 @@ const Container = styled.div`
     gap: 0.5rem;
 
     padding: 1rem 0.5rem;
-    width: 300px;
+    width: 900px;
 
-    h2 {
+    img {
         font-size: 2rem;
         line-height: 1.25rem;
         font-weight: 700;
@@ -19,33 +19,33 @@ const Container = styled.div`
     }
 
     span {
-        font-size: 0.75rem;
+        font-size: 1rem;
+        text-align: center;
     }
 `;
 
-const Image = styled.img`
-    object-fit: contain;
+const GiftContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+
     width: 100%;
-    border-radius: 0.5rem;
+    padding: 1rem 0.5rem;
+    
+    h3 {
+        font-size: 1.5rem;
+    }
 `;
 
 const ButtonsContainer = styled.div`
     display: flex;
     align-items: center;
-    flex-direction: column;
     gap: 1rem;
     
     width: 100%;
     padding: 1.5rem 1rem 0 1rem;
 `;
 
-const SecondaryButtonContainer = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.25rem;
-
-    width: 100%;
-`;
-
-export default { Container, Image, ButtonsContainer, SecondaryButtonContainer };
+export default { Container, GiftContainer, ButtonsContainer };

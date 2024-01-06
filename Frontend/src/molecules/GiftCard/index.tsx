@@ -1,26 +1,29 @@
+import { useState } from "react";
+
 import { Card, PrimaryButton, SecondaryButton } from "@/atoms";
 import { utils } from "@/utils";
+import { bebasNeue } from "@/app/fonts";
+import { SelectGiftModal } from "../SelectGiftModal";
+import { Gift } from "@shared/entities/gift.entity";
 
 import Styled from "./styles";
-import { bebasNeue } from "@/app/fonts";
 
 interface IGiftCardProps {
-    name: string;
-    description: string;
-    imageSrc: string;
-    value: number;
-    onClick(): void;
+    gift: Gift;
+    onSelectGift: (gift: Gift) => void;
 }
 
-export function GiftCard({ name, description, imageSrc, value, onClick }: IGiftCardProps) {
+export function GiftCard({ gift, onSelectGift }: IGiftCardProps) {
+    const { image_src, price, name } = gift;
+    
     return (
         <Card>
             <Styled.Container>
                 <h2 className={bebasNeue.className}>{name.toUpperCase()}</h2>
-                <Styled.Image src={imageSrc} alt="placeholder" />
+                <Styled.Image src={image_src} alt="placeholder" />
                 <Styled.ButtonsContainer>
                     <Styled.SecondaryButtonContainer>
-                        <SecondaryButton href="/secondary">
+                        <SecondaryButton href="" onClick={() => onSelectGift(gift)}>
                             Escolher
                         </SecondaryButton>
                         <SecondaryButton href="/secondary">
@@ -28,11 +31,10 @@ export function GiftCard({ name, description, imageSrc, value, onClick }: IGiftC
                         </SecondaryButton>
                     </Styled.SecondaryButtonContainer>
                     <PrimaryButton href="/primary">
-                        ENVIAR PIX - {utils.convertMoney(value)}
+                        ENVIAR PIX - {utils.convertMoney(price)}
                     </PrimaryButton>
                 </Styled.ButtonsContainer>
             </Styled.Container>
-        </Card> 
+        </Card>
     )
-    
 }

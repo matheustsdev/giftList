@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react";
-import { GiftCard, DetailsModal } from "@/molecules";
+import { GiftCard } from "@/molecules";
 import Styled from "@/styles/pages";
-import Modal from "react-modal";
 import { Gift } from "@shared/entities/gift.entity";
 import { StandartResponse } from "@shared/helpers/StandartResponse";
 import { cinzel } from "@/app/fonts";
 import { api } from "@/services/api";
 import { SelectGiftModal } from "@/molecules/SelectGiftModal";
-import { EResponseStatus } from "@shared/constants/EResponseStatus";
-import { get } from "http";
 
 export default function Home() {
   const [giftsList, setGiftsList] = useState<Gift[]>([]);

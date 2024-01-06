@@ -1,9 +1,8 @@
-import React, { ReactNode } from 'react';
-import { LinkProps } from 'next/link';
+import React, { ButtonHTMLAttributes, ReactNode } from 'react';
 
 import Styled from './styles';
 
-interface ISecondaryButtonProps extends LinkProps {
+interface ISecondaryButtonProps extends ButtonHTMLAttributes<HTMLElement> {
     children: ReactNode;
     href: string
 }

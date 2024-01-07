@@ -15,7 +15,7 @@ export function PaymenModal({ isOpen, onClose }: ISelectGiftModalProps) {
     return (
         <Modal isOpen={isOpen} onClose={onClose}>
             <Styled.Container className={inter.className}>
-                <span>Não esqueça de &ldquo;Escolher&ldquo; esse produto antes ou depois do pagamento,</span>
+                <span>Não esqueça de &ldquo;Escolher&ldquo; esse produto depois do pagamento,</span>
                 <span>para que fique registrado o mesmo.</span>
                 <Styled.ButtonsContainer>
                     <PrimaryButton onClick={() => router.push("https://nubank.com.br/cobrar/v17a/6599a92a-b9b7-4b3b-b12d-4e841ede6bd3")}>

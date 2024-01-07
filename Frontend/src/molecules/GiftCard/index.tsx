@@ -12,10 +12,11 @@ interface IGiftCardProps {
     gift: Gift;
     onSelectGift: (gift: Gift) => void;
     onPaymentClick: (gift: Gift) => void;
+    onReferenceClick: (gift: Gift) => void;
 }
 
-export function GiftCard({ gift, onSelectGift, onPaymentClick }: IGiftCardProps) {
-    const { image_src, price, name } = gift;
+export function GiftCard({ gift, onSelectGift, onPaymentClick, onReferenceClick }: IGiftCardProps) {
+    const { image_src, price, name, reference_url } = gift;
     const router = useRouter();
     
     return (
@@ -28,7 +29,7 @@ export function GiftCard({ gift, onSelectGift, onPaymentClick }: IGiftCardProps)
                         <SecondaryButton onClick={() => onSelectGift(gift)}>
                             Escolher
                         </SecondaryButton>
-                        <SecondaryButton onClick={() => gift.reference_url && router.push(gift.reference_url)}>
+                        <SecondaryButton onClick={() => onReferenceClick(gift)} disabled={!!gift.reference_url}>
                             Referência
                         </SecondaryButton>
                     </Styled.SecondaryButtonContainer>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { GiftCard, SelectGiftModal, PaymenModal } from "@/molecules";
+import { GiftCard, SelectGiftModal, PaymenModal, ReferenceModal } from "@/molecules";
 import Styled from "@/styles/pages";
 import { Gift } from "@shared/entities/gift.entity";
 import { StandartResponse } from "@shared/helpers/StandartResponse";
@@ -13,6 +13,7 @@ export default function Home() {
   const [selectedGift, setSelectedGift] = useState<Gift>({} as Gift);
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const [isSelectGiftModalOpen, setIsSelectGiftModalOpen] = useState(false);
+  const [isReferenceModalOpen, setIsReferenceModalOpen] = useState(false);
   
   async function getAllGifts() {
     try {
@@ -36,6 +37,11 @@ export default function Home() {
   
   const handlePaymentClick = (gift: Gift) => {
     setIsPaymentModalOpen(true);
+  }
+  
+  const handleReferenceClick = (gift: Gift) => {
+    setSelectedGift(gift);
+    setIsReferenceModalOpen(true);
   }
   
   const handleOnConfirm = async () => {
@@ -66,6 +72,7 @@ export default function Home() {
                   gift={gift}
                   onSelectGift={handleSelectGift}
                   onPaymentClick={handlePaymentClick}
+                  onReferenceClick={handleReferenceClick}
                 />
               ))
             }
@@ -92,6 +99,11 @@ export default function Home() {
       <PaymenModal
         isOpen={isPaymentModalOpen}
         onClose={() => setIsPaymentModalOpen(false)}
+      />
+      <ReferenceModal 
+        isOpen={isReferenceModalOpen}
+        onClose={() => setIsReferenceModalOpen(false)}
+        reference_url={selectedGift.reference_url}
       />
     </>
   )

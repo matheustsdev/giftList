@@ -14,7 +14,7 @@ export class GiftsService {
         try {
             const newGift = await this.repositories.reg_gifts.save(gift);
 
-            return new StandartResponse<Gift>([newGift], EResponseStatus.SUCCESS);
+            return new StandartResponse<Gift>([newGift], EResponseStatus.SUCCESS, "Presente criado com sucesso!");
         } catch (e) {
             return new StandartResponse([], EResponseStatus.ERROR, e.message);
         }
@@ -24,7 +24,7 @@ export class GiftsService {
         try {
             const gifts = await this.repositories.reg_gifts.find();
 
-            return new StandartResponse<Gift>(gifts, EResponseStatus.SUCCESS)
+            return new StandartResponse<Gift>(gifts, EResponseStatus.SUCCESS, "Presentes encontrados!")
         } catch (e) {
             return new StandartResponse([], EResponseStatus.ERROR, e.message);
         }
@@ -38,7 +38,7 @@ export class GiftsService {
                 }
             })
 
-            return new StandartResponse<Gift>(gifts, EResponseStatus.SUCCESS)
+            return new StandartResponse<Gift>(gifts, EResponseStatus.SUCCESS, "Presentes encontrados!")
         } catch (e) {
             return new StandartResponse([], EResponseStatus.ERROR, e.message);
         }
@@ -52,7 +52,7 @@ export class GiftsService {
                 }
             })
 
-            return new StandartResponse<Gift>(gifts, EResponseStatus.SUCCESS)
+            return new StandartResponse<Gift>(gifts, EResponseStatus.SUCCESS, "Presentes encontrados!")
         } catch (e) {
             return new StandartResponse([], EResponseStatus.ERROR, e.message);
         }
@@ -70,7 +70,7 @@ export class GiftsService {
                 return new StandartResponse([], EResponseStatus.ERROR, "Gift not found");
             }
 
-            return new StandartResponse<Gift>([gift], EResponseStatus.SUCCESS);
+            return new StandartResponse<Gift>([gift], EResponseStatus.SUCCESS, "Presente encontrado!");
         } catch (e) {
             return new StandartResponse([], EResponseStatus.ERROR, e.message);
         }
@@ -85,7 +85,7 @@ export class GiftsService {
             });
 
             if (!giftToUpdate) {
-                return new StandartResponse<Gift>([], EResponseStatus.ERROR, "Gift not found");
+                return new StandartResponse<Gift>([], EResponseStatus.ERROR, "Presente não encontrado!");
             }
 
             const updatedGift = await this.repositories.reg_gifts.save({
@@ -93,7 +93,7 @@ export class GiftsService {
                 ...gift
             });
 
-            return new StandartResponse<Gift>([updatedGift], EResponseStatus.SUCCESS);
+            return new StandartResponse<Gift>([updatedGift], EResponseStatus.SUCCESS, "Presente atualizado com sucesso!");
         } catch (e) {
             return new StandartResponse([], EResponseStatus.ERROR, e.message);
         }
@@ -112,7 +112,7 @@ export class GiftsService {
             }
 
             if (gift.hasPurchased) {
-                return new StandartResponse([], EResponseStatus.ERROR, "Gift already purchased");
+                return new StandartResponse([], EResponseStatus.ERROR, "Presente já foi escolhido por alguem!");
             }
             
             gift.hasPurchased = true;
@@ -120,7 +120,7 @@ export class GiftsService {
 
             await this.repositories.reg_gifts.save(gift);
 
-            return new StandartResponse<Gift>([gift], EResponseStatus.SUCCESS);
+            return new StandartResponse<Gift>([gift], EResponseStatus.SUCCESS, "Presente escolhido com sucesso!");
         } catch (e) {
             return new StandartResponse([], EResponseStatus.ERROR, e.message);
         }
@@ -135,7 +135,7 @@ export class GiftsService {
             });
 
             if (!gift) {
-                return new StandartResponse([], EResponseStatus.ERROR, "Gift not found");
+                return new StandartResponse([], EResponseStatus.ERROR, "Presente não encontrado!");
             }
 
             await this.repositories.reg_gifts.delete(gift);

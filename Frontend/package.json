@@ -6,7 +6,7 @@
     "dev": "next dev",
     "dev:style": "npx tailwindcss -i ./src/styles/globals.css -o ./src/styles/tailwind.css --watch",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 80",
     "lint": "next lint"
   },
   "dependencies": {

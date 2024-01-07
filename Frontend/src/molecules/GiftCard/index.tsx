@@ -23,13 +23,13 @@ export function GiftCard({ gift, onSelectGift, onPaymentClick, onReferenceClick 
         <Card>
             <Styled.Container>
                 <h2 className={bebasNeue.className}>{name.toUpperCase()}</h2>
-                <Styled.Image src={image_src} alt="placeholder" />
+                <Styled.Image src={`/imgs/products/${image_src}`} alt={name} />
                 <Styled.ButtonsContainer>   
                     <Styled.SecondaryButtonContainer>
                         <SecondaryButton onClick={() => onSelectGift(gift)}>
                             Escolher
                         </SecondaryButton>
-                        <SecondaryButton onClick={() => onReferenceClick(gift)} disabled={!!gift.reference_url}>
+                        <SecondaryButton onClick={() => onReferenceClick(gift)} disabled={!reference_url}>
                             Referência
                         </SecondaryButton>
                     </Styled.SecondaryButtonContainer>

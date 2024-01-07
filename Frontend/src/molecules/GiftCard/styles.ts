@@ -27,6 +27,9 @@ const Image = styled.img`
     object-fit: contain;
     width: 100%;
     border-radius: 0.5rem;
+    
+    width: 150px;
+    height: 150px;
 `;
 
 const ButtonsContainer = styled.div`

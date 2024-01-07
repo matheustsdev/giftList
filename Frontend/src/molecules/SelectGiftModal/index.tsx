@@ -24,7 +24,7 @@ export function SelectGiftModal({ isOpen, onClose, onConfirm, gift }: ISelectGif
                 return;
             }
             
-            toast.success("response.data.message");
+            toast.success(response.data.message);
             onConfirm();
         } catch (error: any) {
             toast.error(error.message);

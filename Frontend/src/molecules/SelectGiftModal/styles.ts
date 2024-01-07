@@ -14,8 +14,6 @@ const Container = styled.div`
         line-height: 1.25rem;
         font-weight: 700;
         padding-bottom: 1rem;
-
-        color: ${({ theme }) => theme.colors.brown};
     }
 
     span {
@@ -40,6 +38,7 @@ const GiftContainer = styled.div`
     
     h3 {
         font-size: 1.5rem;
+        color: ${({ theme }) => theme.colors.brown};
     }
 `;
 
@@ -53,4 +52,13 @@ const ButtonsContainer = styled.div`
     padding: 1.5rem 1rem 0 1rem;
 `;
 
-export default { Container, GiftContainer, ButtonsContainer };
+const Image = styled.img`
+    object-fit: contain;
+    width: 100%;
+    border-radius: 0.5rem;
+    
+    width: 150px;
+    height: 150px;
+`;
+
+export default { Container, GiftContainer, ButtonsContainer, Image };

@@ -13,12 +13,12 @@ interface IReferenceModalProps {
 export function ReferenceModal({ isOpen, onClose, reference_url }: IReferenceModalProps) {
     const router = useRouter();
     
-    const references = reference_url ? reference_url.split("") : [];
+    const references = reference_url ? reference_url.split(" ") : [];
     
     return (
         <Modal isOpen={isOpen} onClose={onClose}>
             <Styled.Container className={inter.className}>
-                <span>O(s) links abaixo são referências para o produto que imaginamos. Caso deseje você pode comprar pelo site também!</span>
+                <span>O(s) links abaixo são referências para o produto que imaginamos, caso deseje você pode comprar pelo site também!</span>
                 <span>Não esqueça de &ldquo;Escolher&ldquo; esse produto depois do pagamento,</span>
                 <span>para que fique registrado o mesmo.</span>
                 <Styled.ButtonsContainer>

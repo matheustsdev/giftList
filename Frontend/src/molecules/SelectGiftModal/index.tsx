@@ -36,10 +36,10 @@ export function SelectGiftModal({ isOpen, onClose, onConfirm, gift }: ISelectGif
             <Styled.Container className={inter.className}>
                 <Styled.GiftContainer>
                     <h3 className={bebasNeue.className}>{gift.name}</h3> 
-                    <img src={gift.image_src} alt={gift.name} />
+                    <Styled.Image src={`/imgs/products/${gift.image_src}`} alt={gift.name} />
                 </Styled.GiftContainer>
-                <span>Ao selecionar esse item, você remove ele da lista, pois você decidiu nos presentear com ele.</span>
-                <span>Mas claro, sem pressão. Caso mude de ideia nos contate para tornarmos o item disponível novamente.</span>
+                <span>Ao selecionar esse item você remove ele da lista, pois você decidiu nos presentear com ele.</span>
+                <span>Mas claro, sem pressão! Caso mude de ideia nos contate para tornarmos o item disponível novamente.</span>
                 <Styled.ButtonsContainer>
                     <SecondaryButton onClick={onClose}>
                         Cancelar

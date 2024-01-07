@@ -17,6 +17,14 @@ const GlobalStyle = createGlobalStyle`
 
         color: ${({ theme }) => theme.colors.slate600}
     }
+    
+    footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        width: 100%;
+    }
 
     a {
         color: inherit;

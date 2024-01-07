@@ -14,6 +14,9 @@ export default function MyApp({
         <GlobalStyle />
         <Component {...pageProps} />
       </main>
+      <footer className={inter.className}>
+          Desenvolvido com ❤️ por Matheus Teixeira e Priscila Rocan
+      </footer>
     </ThemeProvider>
   )
 }

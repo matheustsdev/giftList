@@ -9,25 +9,16 @@ export class Gift {
     name: string;
     
     @Column("varchar", { length: 255 })
-    description: string;
-    
-    @Column("varchar", { length: 255 })
     image_src: string;
     
     @Column("int")
     price: number;
     
     @Column("varchar", { length: 255, nullable: true })
-    kit_name?: string;
-    
-    @Column("varchar", { length: 255, nullable: true })
     reference_url?: string;
     
     @Column("bool")
     hasPurchased: boolean;
-
-    @Column("varchar", { length: 255, nullable: true  })
-    purchasedBy?: string;
     
     @Column("date", { nullable: true })
     purchased_date?: Date;

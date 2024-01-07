@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { GiftCard, SelectGiftModal, PaymenModal, ReferenceModal } from "@/molecules";
 import Styled from "@/styles/pages";
-import { Gift } from "@shared/entities/gift.entity";
+import { IGift } from "@shared/interfaces/IGift";
 import { StandartResponse } from "@shared/helpers/StandartResponse";
 import { cinzel } from "@/app/fonts";
 import { api } from "@/services/api";
@@ -9,15 +9,15 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
-  const [giftsList, setGiftsList] = useState<Gift[]>([]);
-  const [selectedGift, setSelectedGift] = useState<Gift>({} as Gift);
+  const [giftsList, setGiftsList] = useState<IGift[]>([]);
+  const [selectedGift, setSelectedGift] = useState<IGift>({} as IGift);
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const [isSelectGiftModalOpen, setIsSelectGiftModalOpen] = useState(false);
   const [isReferenceModalOpen, setIsReferenceModalOpen] = useState(false);
   
   async function getAllGifts() {
     try {
-      const response = await api.get<StandartResponse<Gift>>('/gifts/available');
+      const response = await api.get<StandartResponse<IGift>>('/gifts/available');
       
       if (response.data.status !== "SUCCESS") {
         toast.error(response.data.message);
@@ -30,16 +30,16 @@ export default function Home() {
     }
   }
   
-  const handleSelectGift = (gift: Gift) => {
+  const handleSelectGift = (gift: IGift) => {
     setSelectedGift(gift);
     setIsSelectGiftModalOpen(true);
   }
   
-  const handlePaymentClick = (gift: Gift) => {
+  const handlePaymentClick = (gift: IGift) => {
     setIsPaymentModalOpen(true);
   }
   
-  const handleReferenceClick = (gift: Gift) => {
+  const handleReferenceClick = (gift: IGift) => {
     setSelectedGift(gift);
     setIsReferenceModalOpen(true);
   }

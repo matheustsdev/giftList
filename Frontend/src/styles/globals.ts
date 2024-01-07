@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         overflow-x: hidden;
 
-        color: ${({ theme }) => theme.colors.slate600}
+        color: ${({ theme }) => theme.colors.black}
     }
     
     footer {
@@ -33,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
 
     .ReactModal__Content {
             padding: 0;
-            background-color: ${props => props.theme.colors.slate800};
+            background-color: ${props => props.theme.colors.black};
         }
 `;
 

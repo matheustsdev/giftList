@@ -1,6 +1,6 @@
 import { Modal, PrimaryButton, SecondaryButton } from "@/atoms";
 import { api } from "@/services/api";
-import { Gift } from "@shared/entities/gift.entity";
+import { IGift } from "@shared/interfaces/IGift";
 import { bebasNeue, inter } from "@/app/fonts";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,7 +11,7 @@ interface ISelectGiftModalProps {
     isOpen: boolean;
     onClose: () => void;
     onConfirm: () => void;
-    gift: Gift;
+    gift: IGift;
 }
 
 export function SelectGiftModal({ isOpen, onClose, onConfirm, gift }: ISelectGiftModalProps) {

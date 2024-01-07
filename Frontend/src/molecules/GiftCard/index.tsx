@@ -4,15 +4,15 @@ import { useRouter } from "next/navigation";
 import { Card, PrimaryButton, SecondaryButton } from "@/atoms";
 import { utils } from "@/utils";
 import { bebasNeue } from "@/app/fonts";
-import { Gift } from "@shared/entities/gift.entity";
+import { IGift } from "@shared/interfaces/IGift";
 
 import Styled from "./styles";
 
 interface IGiftCardProps {
-    gift: Gift;
-    onSelectGift: (gift: Gift) => void;
-    onPaymentClick: (gift: Gift) => void;
-    onReferenceClick: (gift: Gift) => void;
+    gift: IGift;
+    onSelectGift: (gift: IGift) => void;
+    onPaymentClick: (gift: IGift) => void;
+    onReferenceClick: (gift: IGift) => void;
 }
 
 export function GiftCard({ gift, onSelectGift, onPaymentClick, onReferenceClick }: IGiftCardProps) {

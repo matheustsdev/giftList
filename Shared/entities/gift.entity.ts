@@ -14,7 +14,7 @@ export class Gift {
     @Column("int")
     price: number;
     
-    @Column("varchar", { length: 255, nullable: true })
+    @Column("varchar", { length: 1000, nullable: true })
     reference_url?: string;
     
     @Column("bool")

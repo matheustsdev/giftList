@@ -8,6 +8,8 @@ import { cinzel } from "@/app/fonts";
 import { api } from "@/services/api";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { PrimaryButton } from "@/atoms";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [giftsList, setGiftsList] = useState<IGift[]>([]);
@@ -15,6 +17,8 @@ export default function Home() {
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const [isSelectGiftModalOpen, setIsSelectGiftModalOpen] = useState(false);
   const [isReferenceModalOpen, setIsReferenceModalOpen] = useState(false);
+  
+  const router = useRouter();
   
   async function getAllGifts() {
     try {
@@ -67,6 +71,9 @@ export default function Home() {
                 Lista de casa nova | Priscila e Teixeira
               </Styled.Title>
             </Styled.TitleCard>
+            <PrimaryButton onClick={() => router.push("https://drive.google.com/file/d/1sO6w758tw6dYglaQtNsRcdRcl2zTHH30/view?usp=sharing")}>
+              Ver moodboard
+            </PrimaryButton>
           </Styled.Cover>
           <Styled.Content>
             {

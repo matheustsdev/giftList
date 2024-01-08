@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Head from "next/head";
 import { GiftCard, SelectGiftModal, PaymenModal, ReferenceModal } from "@/molecules";
 import Styled from "@/styles/pages";
 import { IGift } from "@shared/interfaces/IGift";
@@ -56,6 +57,9 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Chá de casa nova | Priscila e Teixeira</title>
+      </Head>
       <Styled.HomeContainer>
           <Styled.Cover>
             <Styled.TitleCard>

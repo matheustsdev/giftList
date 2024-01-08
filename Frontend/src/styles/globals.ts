@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     a {
-        color: inherit;
+        color: ${({ theme }) => theme.colors.black};
         text-decoration: none;
     }
 
